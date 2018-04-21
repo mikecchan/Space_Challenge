@@ -5,8 +5,7 @@ public class U1 extends Rocket{
     }
 
     public boolean land(){
-        double chance = super.getProb();
-        if(Math.random() > chance){
+        if(Math.random() > super.getProb()){
             return true;
         }
         else{
@@ -15,8 +14,7 @@ public class U1 extends Rocket{
     }
 
     public boolean launch(){
-        double chance = super.getProb();
-        if(Math.random() > chance){
+        if(Math.random() > super.getProb()){
             return true;
         }
         else{
@@ -30,5 +28,9 @@ public class U1 extends Rocket{
 
     public boolean canCarry(Item item){
         return super.canCarry(item);
+    }
+
+    public void u1specific(){
+
     }
 }

@@ -4,16 +4,22 @@ public class U2 extends Rocket{
         super(120, 18, 29, 0.04, 0.08);
     }
 
-    @Override
     public boolean land(){
-
-        return true;
+        if(Math.random() > super.getProb()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
-    @Override
     public boolean launch(){
-
-        return true;
+        if(Math.random() > super.getProb()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public void carry(Item item){
@@ -22,5 +28,9 @@ public class U2 extends Rocket{
 
     public boolean canCarry(Item item){
         return super.canCarry(item);
+    }
+
+    public void thisisu2(){
+
     }
 }

@@ -27,7 +27,7 @@ public class Rocket implements SpaceShip{
     }
 
     public boolean canCarry(Item item){
-        if(item.getWeight() < max_weight){
+        if(item.getWeight() < this.max_weight){
             return true;
         }
         else{
@@ -36,6 +36,10 @@ public class Rocket implements SpaceShip{
     }
 
     public void carry(Item item){
-        weight += item.getWeight();
+        this.weight += item.getWeight();
+    }
+
+    public double getCost(){
+        return this.cost;
     }
 }
