@@ -19,11 +19,21 @@ public class Rocket implements SpaceShip{
     }
 
     public boolean launch(){
-        return true;
+        if(Math.random() > getProb()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean land(){
-        return true;
+        if(Math.random() > getProb()){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
     public boolean canCarry(Item item){

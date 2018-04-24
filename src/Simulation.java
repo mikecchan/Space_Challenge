@@ -74,9 +74,9 @@ public class Simulation {
         return item_array;
     }
 
-    public ArrayList loadU1(ArrayList<Item> item_array){
+    public ArrayList<Rocket> loadU1(ArrayList<Item> item_array){
 
-        ArrayList U1_arrayList = new ArrayList();
+        ArrayList<Rocket> arrayList = new ArrayList();
         U1 U1_unit = new U1();
 
         for(Item i: item_array){
@@ -84,39 +84,42 @@ public class Simulation {
                 U1_unit.carry(i);
             }
             else{
-                U1_arrayList.add(U1_unit);
+                arrayList.add(U1_unit);
                 U1_unit = new U1();
             }
         }
-        return U1_arrayList;
+        return arrayList;
     }
 
-    public ArrayList loadU2(ArrayList<Item> item_array){
-        ArrayList Rocket_arrayList = new ArrayList();
+    public ArrayList<Rocket> loadU2(ArrayList<Item> item_array){
+        ArrayList<Rocket> arrayList = new ArrayList<>();
         U2 U2_unit = new U2();
-        Rocket u2 = new U2();
+        //U2 has access to U2 methods and Rocket methods.
+        //Rocket u2 = new U2();
+        //Rocket thus only has access to Rocket methods, not subclasses.
 
         for(Item i: item_array){
             if(U2_unit.canCarry(i)){
                 U2_unit.carry(i);
             }
             else{
-                Rocket_arrayList.add(U2_unit);
+                arrayList.add(U2_unit);
                 U2_unit = new U2();
             }
         }
-        return Rocket_arrayList;
+        return arrayList;
     }
 
-    public double runSimulation(ArrayList rocket_list){
+    public double runSimulation(ArrayList<Rocket> rocket_list){
 
         double total_budget = 0;
 
         for(int i=0; i<rocket_list.size(); i++){
-            U1 u1 = (U1)rocket_list.get(i);
-            System.out.println("works");
-            if(rocket_list.get(i) instanceof U1){
-                //u1 = (U1)rocket_list.get(i);
+            //U1 u1 = (U1)rocket_list.get(i);
+            /*
+            if(((U1) rocket_list.get(i)){
+                System.out.println("u1 is instance of...");
+                U1 u1 = (U1)rocket_list.get(i);
                 total_budget += u1.getCost();
                 if(!u1.launch() || !u1.land()){
                     i--;
@@ -130,6 +133,12 @@ public class Simulation {
                 if(!u2.launch() || !u2.land()){
                     i--;
                 }
+            }
+            */
+            Rocket r = rocket_list.get(i);
+            total_budget += r.getCost();
+            if(!r.launch() || !r.land()){
+                i--;
             }
 
         }

@@ -6,16 +6,24 @@ public class Main {
 
         Simulation simulation = new Simulation();
 
-        ArrayList<Item> items = new ArrayList<Item>();
+        System.out.println("Trying with Phase 1");
 
-        items = simulation.loadItems("phase-1.txt");
+        ArrayList<Item> items = simulation.loadItems("phase-1.txt");
 
-        System.out.println("For U1 rockets, it costed: " + simulation.runSimulation(items));
+        ArrayList<Rocket> rockets = simulation.loadU1(items);
+
+        System.out.println("For U1 rockets, it costed: " + simulation.runSimulation(rockets));
 
         items.clear();
 
+        rockets.clear();
+
+        System.out.println("Trying with Phase 2");
+
         items = simulation.loadItems("phase-2.txt");
 
-        System.out.println("For U2 rockets, it costed: " + simulation.runSimulation(items));
+        rockets = simulation.loadU2(items);
+
+        System.out.println("For U2 rockets, it costed: " + simulation.runSimulation(rockets));
     }
 }
