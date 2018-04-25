@@ -115,26 +115,6 @@ public class Simulation {
         double total_budget = 0;
 
         for(int i=0; i<rocket_list.size(); i++){
-            //U1 u1 = (U1)rocket_list.get(i);
-            /*
-            if(((U1) rocket_list.get(i)){
-                System.out.println("u1 is instance of...");
-                U1 u1 = (U1)rocket_list.get(i);
-                total_budget += u1.getCost();
-                if(!u1.launch() || !u1.land()){
-                    i--;
-                }
-            }
-            else if(rocket_list.get(i) instanceof U2){
-                U2 u2 = (U2)rocket_list.get(i);
-                total_budget += u2.getCost();
-                u2.launch();
-                u2.land();
-                if(!u2.launch() || !u2.land()){
-                    i--;
-                }
-            }
-            */
             Rocket r = rocket_list.get(i);
             total_budget += r.getCost();
             if(!r.launch() || !r.land()){

@@ -5,6 +5,7 @@ public class U2 extends Rocket{
     }
 
     public boolean land(){
+        //System.out.println("U2 / land()");
         if(Math.random() > super.getProb()){
             return true;
         }
@@ -14,23 +15,12 @@ public class U2 extends Rocket{
     }
 
     public boolean launch(){
+        //System.out.println("U2 / launch()");
         if(Math.random() > super.getProb()){
             return true;
         }
         else{
             return false;
         }
-    }
-
-    public void carry(Item item){
-        super.carry(item);
-    }
-
-    public boolean canCarry(Item item){
-        return super.canCarry(item);
-    }
-
-    public void thisisu2(){
-
     }
 }
